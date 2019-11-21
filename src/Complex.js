@@ -5,9 +5,9 @@ class Complex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      number: '0000000000000000',
+      number: '',
       name: 'xxxxx xxx',
-      valid: 'xx/xx',
+      valid: '',
 
     }
   }
@@ -28,7 +28,7 @@ class Complex extends React.Component {
 
           </div>
           <img className='chip-pic' src='https://previews.123rf.com/images/miceking/miceking1603/miceking160300029/53109625-chip-of-credit-card-sim-card-chip.jpg' />
-          <h3 className='credit-holder-number'>{this.state.number.replace(/(.{4})/g, '$1 ')
+          <h3 className='credit-holder-number'>{this.state.number.padEnd(16 , "*").replace(/(.{4})/g, '$1 ')
 }</h3>
           <div className='credit-number-pic'>
 
@@ -42,7 +42,7 @@ class Complex extends React.Component {
                 </div>
                 <div className='month-year'>
                   <h6 className='m-y'>MONTH/YEAR</h6>
-                  <h3 className='valid-card'> {this.state.valid.slice(0,2)+'/'+this.state.valid.slice(2,4)}</h3>
+                  <h3 className='valid-card'> {this.state.valid.padEnd(2,'*').slice(0,2)+'/'+this.state.valid.slice(2,4).padEnd(2,'*')}</h3>
 
                 </div>
               </div>
